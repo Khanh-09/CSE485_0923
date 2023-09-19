@@ -131,6 +131,42 @@ echo "Chuỗi lớn nhất là $maxString, độ dài = $maxLength" . "<br>";
 echo "Chuỗi nhỏ nhất là $minString, độ dài = $minLength" . "<br>";
 ?>
 
+<?php
+//bai 9
+$arrs = ['1', 'B', 'C', 'E'];
+$result = array_map('strtolower', $arrs);
+print_r($result);
+echo "<br>";
 
+$arrs = ['a', 0, null, false];
+$result = array_map(function($item) {
+    if (is_string($item)) {
+        return strtolower($item);
+    }
+    return $item;
+}, $arrs);
+print_r($result);
+echo "<br>";
+?>
+
+<?php
+//bai 10
+$arrs = ['1', 'b', 'c', 'd'];
+$result = array_map('strtoupper', $arrs);
+print_r($result);
+echo "<br>";
+
+$arrs = ['a', 0, null, false];
+$result = array_map(function($item) {
+    if (is_string($item)) {
+        return strtoupper($item);
+    }
+    return $item;
+}, $arrs);
+print_r($result);
+echo "<br>";
+?>
+
+<?php
 
 
