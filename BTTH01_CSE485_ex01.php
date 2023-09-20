@@ -168,5 +168,92 @@ echo "<br>";
 ?>
 
 <?php
+//bai 11
+$array = array(1, 2, 3, 4, 5);
+unset ($array[3]);
+print_r($array);
+echo "<br>";
+?>
 
+<?php
+//bai 12
+$numbers = [
+    'key1' => 12, 
+    'key2' => 30, 
+    'key3' => 4, 
+    'key4' => -123, 
+    'key5' => 1234, 
+    'key6' => -12565, 
+];
+$firstElement = reset($numbers);
+$lastElement = end($numbers);
+echo "Phần tử đầu tiên: " . $firstElement . "<br/>";
+echo "Phần tử cuối cùng: " . $lastElement . "<br/>";
 
+$maxNumber = max($numbers);
+$minNumber = min($numbers);
+$sum = array_sum($numbers);
+echo "Số lớn nhất: " . $maxNumber . "<br>";
+echo "Số nhỏ nhất: " . $minNumber . "<br>";
+echo "Tổng các giá trị: " . $sum . "<br>";
+
+sort($numbers);
+echo "Sắp xếp tăng dần các giá trị:";
+print_r($numbers);
+echo "<br>";
+rsort($numbers);
+echo "Sắp xếp giảm dần các giá trị:";
+print_r($numbers);
+echo "<br>";
+
+ksort($numbers);
+echo "Sắp xếp tăng dần các key:";
+print_r($numbers);
+echo "<br>";
+krsort($numbers);
+echo "Sắp xếp giảm dần các key:";
+print_r($numbers);
+echo "<br>";
+?>
+
+<?php
+//bai 13
+$numbers = [78, 60, 62, 68, 71, 68, 73, 85, 66, 64, 76, 63, 75, 76, 73, 68, 62, 73, 72, 
+65, 74, 62, 62, 65, 64, 68, 73, 75, 79, 73];
+$sum = array_sum($numbers);
+$count = count($numbers);
+$average = $sum / $count;
+echo "Giá trị trung bình của mảng là: " . $average . "<br>";
+
+echo "Các số lớn hơn giá trị trung bình là: ";
+foreach ($numbers as $number) {
+    if ($number > $average) {
+        echo $number . " ";
+    }
+}
+echo "<br>";
+
+echo "Các số nhỏ hơn hoặc bằng giá trị trung bình là: ";
+foreach ($numbers as $number) {
+    if ($number <= $average) {
+        echo $number . " ";
+    }
+}
+echo "<br>";
+?>
+
+<?php
+//bai 14
+$array1 = [
+    [77, 87],
+    [23, 45]
+   ];
+$array2 = [
+    'giá trị 1', 'giá trị 2'
+   ];
+$result = [];
+foreach ($array1 as $index => $subArray) {
+    $result[$index] = array_merge([$array2[$index]], $subArray);
+}
+print_r($result);
+?>
