@@ -1,13 +1,21 @@
 <?php
-require_once('../app/config/config.php');
 
-$controller = isset($_GET['controller']) ? $_GET['controller'] :'home';
-$action     = isset($_GET['action']) ? $_GET['action']:'index';
-if($controller=='home'){
-    require_once APP_ROOT.'/controllers/SongController.php';
-    $songController = new SongController();
-    $songController->index();
-}else{
-    echo "not to found";
+$controller = isset($_GET['c'])?$_GET['c']:'home';
+$action     = isset($_GET['a'])?$_GET['a']:'index';
+
+$controller = ucfirst($controller);
+
+$controller = $controller."Controller";
+$path = "../app/controllers/".$controller.".php"; 
+if(!file_exists($path)){
+    die("Request not found. Check your path");
 }
+include "$path";
+$myController = new $controller();
+if (method_exists($myController, $action)) {
+    $myController->$action();
+} else {
+    echo "$action does not exist in $controller class";
+}
+
 ?>
