@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <div class="container">
+<div class="container">
+    <div class="main-content p-3">
         <a href="" class='btn btn-success'>Add a new song</a>
         <table class="table">
             <thead>
@@ -17,7 +18,8 @@
                     <th scope="col">Tên bài hát</th>
                     <th scope="col">Ca sĩ</th>
                     <th scope="col">Id thể loại</th>
-                    <th scope="col">Hoạt động</th>
+                    <th scope="col">Sửa</th>
+                    <th scope="col">Xóa</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,16 +31,15 @@
                     <td><?= $song->getTenBaiHat(); ?></td>
                     <td><?= $song->getCaSi(); ?></td>
                     <td><?= $song->getIdTheLoai(); ?></td>
-                    <td>
-                        <a href=""><i class="bi bi-pencil-fill"></i></a>
-                        <a href=""><i class="bi bi-trash-fill"></i></a>
-                    </td>
+                    <td><a href=""><i class="bi bi-pencil-square"></i></a></td>
+                    <td><a href=""><i class="bi bi-trash3-fill"></i></a></td>
                 </tr>
             <?php
             }
             ?>
             </tbody>
         </table>
-    </div> 
+    </div>
+</div>
 </body>
 </html>
