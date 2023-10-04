@@ -1,17 +1,22 @@
 <?php
-include "../app/models/Song.php";
+require_once APP_ROOT.'/app/models/Song.php';
 class SongService{
-    private $listOfSongs;
+    public function getAllSongs() {
+        try{
+            $conn = new PDO('mysql:host=localhost;dbname=QuanLyBaiHat','root','');
 
-    public function __construct(){
-        $song01 = new Song(1,'bai1', 'casi1',1);
-        $song02 = new Song(2,'bai2', 'casi2',2);
-        $song03 = new Song(3,'bai3', 'casi3',3);
-        $this->listOfSongs[] = $song01;
-        $this->listOfSongs[] = $song02;
-        $this->listOfSongs[] = $song03;
-    }
-    public function getAllSongs(){
-        return $this->listOfSongs;
+            $sql= "SELECT * FROM songs";
+            $stmt = $conn->query($sql);
+
+            $songs = []; 
+            while ($row = $stmt->fetch()){
+                $song = new Song($row['id'],$row['tenBaiHat'],$row['caSi'],$row['idTheLoai']);
+                $songs[]=$song;
+            }
+            return $songs;
+        }catch(PDOException $e){
+            return $songs = [];
+        }
     }
 }
+?>

@@ -8,35 +8,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-<div class="container">
-    <div class="main-content p-3">
+    <div class="container">
         <a href="" class='btn btn-success'>Add a new song</a>
-        <table class="table table-bordered">
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Tên bài hát</th>
                     <th scope="col">Ca sĩ</th>
                     <th scope="col">Id thể loại</th>
-                    <th scope="col">Sửa</th>
-                    <th scope="col">Xóa</th>
+                    <th scope="col">Hoạt động</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($songs as $song) { ?>
-                    <tr>
-                        <td><?php echo $song->getId(); ?></td>
-                        <td><?php echo $song->getTenBaiHat(); ?></td>
-                        <td><?php echo $song->getCaSi(); ?></td>
-                        <td><?php echo $song->getIdTheLoai(); ?></td>
-                        <td><a href=""><i class="bi bi-pencil-square"></i></a></td>
-                        <td><a href=""><i class="bi bi-trash3-fill"></i></a></td>
-                    </tr>
-                <?php } ?>
+            <?php
+                foreach ($songs as $song) { 
+            ?>
+                <tr>
+                    <th scope="row"><?= $song->getId(); ?></th>
+                    <td><?= $song->getTenBaiHat(); ?></td>
+                    <td><?= $song->getCaSi(); ?></td>
+                    <td><?= $song->getIdTheLoai(); ?></td>
+                    <td>
+                        <a href=""><i class="bi bi-pencil-fill"></i></a>
+                        <a href=""><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
             </tbody>
         </table>
-    </div>
-</div> 
+    </div> 
 </body>
 </html>
