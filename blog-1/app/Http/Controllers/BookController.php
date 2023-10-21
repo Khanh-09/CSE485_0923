@@ -71,13 +71,8 @@ class BookController extends Controller
             'author_id' => 'required',
 
         ]);
-/*
-        $book->title = $request->title;
-        $book->author_id = $request->author_id;
-        $book->save();
-*/
-        $book->update($request->all());
-        
+
+        $book->update($request->all());        
         return redirect()->route('books.index')
         ->with('success','Book updated successfully');
     }

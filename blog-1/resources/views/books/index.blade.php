@@ -10,6 +10,11 @@
             </div>
         </div>
         <div class="mb-3"></div>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         <table class="table table-bordered">
             <thead>
                 <tr class="text-center">

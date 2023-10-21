@@ -62,15 +62,11 @@ class AuthorController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        $request->validate([
-            'name' => 'required',
+        $data = $request->except(["_token","_method"]);
 
-        ]);
-
-        $author->name = $request->name;
-        $author->save();
+        $author->update($data);
         return redirect()->route('authors.index')
-        ->with('success','Author updated successfully');
+        ->with('Message', 'Author updated successfully');
     }
 
     /**
