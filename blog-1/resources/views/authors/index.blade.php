@@ -6,7 +6,7 @@
                 <h4 class="float-start">Authors List</h4>
             </div>
             <div class="col-lg-6 text-end">
-                <a class="btn btn-success" href="{{ route('authors.create') }}">Add a new author</a>
+                <a class="btn btn-warning" href="{{ route('authors.create') }}">Add a new author</a>
             </div>
         </div>
         <div class="mb-3"></div>
