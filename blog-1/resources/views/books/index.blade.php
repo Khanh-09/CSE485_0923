@@ -26,20 +26,14 @@
                     <td class="text-center"><?php echo $book->author_id; ?></td>
                     <td><?php echo $book->title; ?></td>
                     <td class="text-center">
-                        <form action="{{ route('books.destroy', $book->id) }}" method="POST" id="deleteForm-{{ $book->id }}">
-                            <a class="btn btn-primary" href="{{ route('books.edit', $book->id) }}">Edit</a>
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="confirmDelete(event, {{ $book->id }})">Delete</button>
-                        </form>
-                        <script>
-                            function confirmDelete(event, bookId) {
-                                event.preventDefault();
-                                if (confirm('Are you sure you want to delete this book?')) {
-                                    document.getElementById('deleteForm-' + bookId).submit();
-                                }
-                            }
-                        </script>
+                        <div class="btn-group">
+                            <form action="{{ route('books.destroy', $book->id) }}" method="POST">
+                                <a class="btn btn-primary" href="{{ route('books.edit', $book->id) }}">Edit</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach 
