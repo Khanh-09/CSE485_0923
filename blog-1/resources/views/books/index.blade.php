@@ -3,7 +3,7 @@
 @section('content')
         <div class="row">
             <div class="col-lg-6">
-                <h4 class="float-start">Books List</h4>
+                <h4 class="float-start"> List Books</h4>
             </div>
             <div class="col-lg-6 text-end">
                 <a class="btn btn-success" href="{{ route('books.create') }}">Add a new book</a>

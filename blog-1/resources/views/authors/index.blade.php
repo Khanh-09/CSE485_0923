@@ -3,10 +3,11 @@
 @section('content')
         <div class="row">
             <div class="col-lg-6">
-                <h4 class="float-start">Authors List</h4>
+                <h4 class="float-start">List Authors</h4>
             </div>
             <div class="col-lg-6 text-end">
                 <a class="btn btn-success" href="{{ route('authors.create') }}">Add a new author</a>
+                <a class="btn btn-primary" href="{{ route('books.index') }}">List Books</a>
             </div>
         </div>
         <div class="mb-3"></div>
@@ -23,7 +24,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
            @foreach ($authors as $author)
                 <tr>
                     <td class="text-center">{{ $author->id }}</td>
